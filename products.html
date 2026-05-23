@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮光花事 - 花卉用品</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="浮光花事" class="logo-img">
+                <h1>浮光花事</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="index.html" class="dropbtn">花卉图鉴</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#roses">玫瑰</a>
+                        <a href="index.html#lilies">百合</a>
+                        <a href="index.html#tulips">郁金香</a>
+                        <a href="index.html#orchids">兰花</a>
+                    </div>
+                </li>
+                <li><a href="products.html" class="active">花卉用品</a></li>
+                <li><a href="profile.html">用户中心</a></li>
+                <li><a href="#" onclick="logout()">退出登录</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="搜索商品..." id="searchInput">
+                <button onclick="searchProduct()">搜索</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products-header">
+            <h2>花卉用品商城</h2>
+            <p>为您的花卉选择最好的养护用品</p>
+        </section>
+
+        <section class="products-section">
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="filterProducts('all')">全部</button>
+                <button class="tab-btn" onclick="filterProducts('soil')">花土肥料</button>
+                <button class="tab-btn" onclick="filterProducts('pot')">花盆容器</button>
+                <button class="tab-btn" onclick="filterProducts('tool')">园艺工具</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-category="soil">
+                    <img src="网站图片/有机营养土.jpg" alt="有机花土">
+                    <h3>有机营养土</h3>
+                    <p>富含多种微量元素，促进花卉生长</p>
+                    <div class="price">¥28.00</div>
+                    <div class="quantity-control">
+                        <button onclick="decreaseQty(this)">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button onclick="increaseQty(this)">+</button>
+                    </div>
+                    <button class="add-cart-btn" onclick="addToCart('有机营养土', 28, this)">加入购物车</button>
+                </div>
+
+                <div class="product-card" data-category="pot">
+                    <img src="网站图片/花盆.webp" alt="陶瓷花盆">
+                    <h3>精美陶瓷花盆</h3>
+                    <p>手工制作，透气性好，美观大方</p>
+                    <div class="price">¥58.00</div>
+                    <div class="quantity-control">
+                        <button onclick="decreaseQty(this)">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button onclick="increaseQty(this)">+</button>
+                    </div>
+                    <button class="add-cart-btn" onclick="addToCart('精美陶瓷花盆', 58, this)">加入购物车</button>
+                </div>
+
+                <div class="product-card" data-category="tool">
+                    <img src="网站图片/园艺工具.jpg" alt="园艺工具套装">
+                    <h3>园艺工具套装</h3>
+                    <p>包含铲子、剪刀、喷壶等必备工具</p>
+                    <div class="price">¥88.00</div>
+                    <div class="quantity-control">
+                        <button onclick="decreaseQty(this)">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button onclick="increaseQty(this)">+</button>
+                    </div>
+                    <button class="add-cart-btn" onclick="addToCart('园艺工具套装', 88, this)">加入购物车</button>
+                </div>
+
+                <div class="product-card" data-category="soil">
+                    <img src="网站图片/液体肥.jpg" alt="液体肥料">
+                    <h3>液体有机肥料</h3>
+                    <p>浓缩配方，快速吸收，效果显著</p>
+                    <div class="price">¥35.00</div>
+                    <div class="quantity-control">
+                        <button onclick="decreaseQty(this)">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button onclick="increaseQty(this)">+</button>
+                    </div>
+                    <button class="add-cart-btn" onclick="addToCart('液体有机肥料', 35, this)">加入购物车</button>
+                </div>
+
+                <div class="product-card" data-category="pot">
+                    <img src="网站图片/塑料花盆.webp" alt="塑料花盆">
+                    <h3>环保塑料花盆</h3>
+                    <p>轻便耐用，多种颜色可选</p>
+                    <div class="price">¥15.00</div>
+                    <div class="quantity-control">
+                        <button onclick="decreaseQty(this)">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button onclick="increaseQty(this)">+</button>
+                    </div>
+                    <button class="add-cart-btn" onclick="addToCart('环保塑料花盆', 15, this)">加入购物车</button>
+                </div>
+
+                <div class="product-card" data-category="tool">
+                    <img src="网站图片/浇水壶.webp" alt="浇水壶">
+                    <h3>精致浇水壶</h3>
+                    <p>大容量设计，出水均匀</p>
+                    <div class="price">¥45.00</div>
+                    <div class="quantity-control">
+                        <button onclick="decreaseQty(this)">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button onclick="increaseQty(this)">+</button>
+                    </div>
+                    <button class="add-cart-btn" onclick="addToCart('精致浇水壶', 45, this)">加入购物车</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cart-section" id="cartSection">
+            <h2>🛒 购物车</h2>
+            <div id="cartItems">
+                <p class="empty-cart">购物车为空，请添加商品</p>
+            </div>
+            <div id="cartTotal" style="display: none;">
+                <div class="total-row">
+                    <span>商品总数:</span>
+                    <span id="totalCount">0</span>
+                </div>
+                <div class="total-row">
+                    <span>付款总额:</span>
+                    <span id="totalAmount">¥0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">结算付款</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <span class="theme-icon sun">☀️</span>
+        <span class="theme-icon moon">🌙</span>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>关于我们</h4>
+                <p>浮光花事致力于分享花卉知识，推广花卉文化，为花卉爱好者提供优质服务。</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="landing.html">首页</a></li>
+                    <li><a href="index.html">花卉图鉴</a></li>
+                    <li><a href="products.html">花卉用品</a></li>
+                    <li><a href="login.html">用户登录</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <p>邮箱: contact@fuguanghuashi.com</p>
+                <p>电话: 400-123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 翟祥彭 - 浮光花事 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

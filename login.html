@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮光花事 - 用户登录</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="mainHeader" style="display: none;">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="浮光花事" class="logo-img">
+                <h1>浮光花事</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="index.html" class="dropbtn">花卉图鉴</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#roses">玫瑰</a>
+                        <a href="index.html#lilies">百合</a>
+                        <a href="index.html#tulips">郁金香</a>
+                        <a href="index.html#orchids">兰花</a>
+                    </div>
+                </li>
+                <li><a href="products.html">花卉用品</a></li>
+                <li><a href="profile.html">用户中心</a></li>
+                <li><a href="#" onclick="logout()">退出登录</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="搜索花卉..." id="searchInput">
+                <button onclick="searchFlower()">搜索</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>用户登录</h2>
+                    <p>欢迎来到浮光花事</p>
+                </div>
+                
+                <form id="loginForm" onsubmit="return validateLogin()">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" placeholder="请输入用户名" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" placeholder="请输入密码" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="captcha">验证码</label>
+                        <div class="captcha-row">
+                            <input type="text" id="captcha" placeholder="请输入验证码" required>
+                            <div class="captcha-img" id="captchaImg" onclick="generateCaptcha()">
+                                <span id="captchaText">点击生成</span>
+                            </div>
+                            <span class="captcha-refresh" onclick="generateCaptcha()" title="点击刷新验证码">🔄</span>
+                        </div>
+                        <p class="captcha-hint">点击验证码图片或刷新按钮更换验证码</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remember">
+                            记住我
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">登录</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>还没有账号？<a href="#" onclick="showRegister()">立即注册</a></p>
+                    <p><a href="#" onclick="forgotPassword()">忘记密码？</a></p>
+                </div>
+            </div>
+
+            <div class="register-container" id="registerContainer" style="display: none;">
+                <div class="form-header">
+                    <h2>用户注册</h2>
+                    <p>创建您的浮光花事账号</p>
+                </div>
+                
+                <form id="registerForm" onsubmit="return validateRegister()">
+                    <div class="form-group">
+                        <label for="regUsername">用户名</label>
+                        <input type="text" id="regUsername" placeholder="请输入用户名" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regPassword">密码</label>
+                        <input type="password" id="regPassword" placeholder="请输入密码" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regConfirmPassword">确认密码</label>
+                        <input type="password" id="regConfirmPassword" placeholder="请再次输入密码" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regEmail">邮箱</label>
+                        <input type="email" id="regEmail" placeholder="请输入邮箱地址" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="regCaptcha">验证码</label>
+                        <div class="captcha-row">
+                            <input type="text" id="regCaptcha" placeholder="请输入验证码" required>
+                            <div class="captcha-img" id="regCaptchaImg" onclick="generateRegisterCaptcha()">
+                                <span id="regCaptchaText">点击生成</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">注册</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>已有账号？<a href="#" onclick="showLogin()">返回登录</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <span class="theme-icon sun">☀️</span>
+        <span class="theme-icon moon">🌙</span>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>关于我们</h4>
+                <p>浮光花事致力于分享花卉知识，推广花卉文化，为花卉爱好者提供优质服务。</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="landing.html">首页</a></li>
+                    <li><a href="index.html">花卉图鉴</a></li>
+                    <li><a href="products.html">花卉用品</a></li>
+                    <li><a href="login.html">用户登录</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <p>邮箱: contact@fuguanghuashi.com</p>
+                <p>电话: 400-123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 翟祥彭 - 浮光花事 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

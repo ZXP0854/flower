@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮光花事 - 用户中心</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="浮光花事" class="logo-img">
+                <h1>浮光花事</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">花卉图鉴</a></li>
+                <li><a href="products.html">花卉用品</a></li>
+                <li><a href="profile.html" class="active">用户中心</a></li>
+                <li><a href="#" onclick="logout()">退出登录</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="搜索花卉..." id="searchInput">
+                <button onclick="searchFlower()">搜索</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <span class="avatar-icon">👤</span>
+                </div>
+                <div class="profile-info">
+                    <h2 id="userName">用户名称</h2>
+                    <p id="userEmail">user@example.com</p>
+                    <p id="memberLevel">普通会员</p>
+                </div>
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="orderCount">0</div>
+                    <div class="stat-label">订单数量</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="spentAmount">¥0.00</div>
+                    <div class="stat-label">累计消费</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="favoriteCount">0</div>
+                    <div class="stat-label">收藏花卉</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="couponCount">3</div>
+                    <div class="stat-label">优惠券</div>
+                </div>
+            </div>
+
+            <div class="profile-menu">
+                <div class="menu-group">
+                    <h3>我的订单</h3>
+                    <div class="menu-items">
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">📦</span>
+                            <span>待付款</span>
+                            <span class="menu-badge">2</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">🚚</span>
+                            <span>待发货</span>
+                            <span class="menu-badge">1</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">✅</span>
+                            <span>已完成</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">💬</span>
+                            <span>评价</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="menu-group">
+                    <h3>我的账户</h3>
+                    <div class="menu-items">
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">👤</span>
+                            <span>个人信息</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">🔒</span>
+                            <span>修改密码</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">❤️</span>
+                            <span>我的收藏</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">🎫</span>
+                            <span>优惠券</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="menu-group">
+                    <h3>客户服务</h3>
+                    <div class="menu-items">
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">❓</span>
+                            <span>帮助中心</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">💬</span>
+                            <span>联系客服</span>
+                        </a>
+                        <a href="#" class="menu-item">
+                            <span class="menu-icon">📝</span>
+                            <span>意见反馈</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <span class="theme-icon sun">☀️</span>
+        <span class="theme-icon moon">🌙</span>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>关于我们</h4>
+                <p>浮光花事致力于分享花卉知识，推广花卉文化，为花卉爱好者提供优质服务。</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="landing.html">首页</a></li>
+                    <li><a href="index.html">花卉图鉴</a></li>
+                    <li><a href="products.html">花卉用品</a></li>
+                    <li><a href="profile.html">用户中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <p>邮箱: contact@fuguanghuashi.com</p>
+                <p>电话: 400-123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 翟祥彭 - 浮光花事 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

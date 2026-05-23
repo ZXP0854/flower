@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮光花事 - 探索花卉之美</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="浮光花事" class="logo-img">
+                <h1>浮光花事</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="index.html" class="active">花卉图鉴</a>
+                    <div class="dropdown-content">
+                        <a href="#roses">玫瑰</a>
+                        <a href="#lilies">百合</a>
+                        <a href="#tulips">郁金香</a>
+                        <a href="#orchids">兰花</a>
+                    </div>
+                </li>
+                <li><a href="products.html">花卉用品</a></li>
+                <li><a href="profile.html">用户中心</a></li>
+                <li><a href="#" onclick="logout()">退出登录</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="搜索花卉..." id="searchInput">
+                <button onclick="searchFlower()">搜索</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>探索花卉的奇妙世界</h2>
+                <p>每一朵花都是大自然的艺术品，蕴含着独特的花语与文化</p>
+                <a href="#gallery" class="cta-btn">开始探索</a>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2 class="section-title">精选花卉</h2>
+            <div class="flower-grid">
+                <div class="flower-card" id="roses">
+                    <img src="网站图片/玫瑰.webp" alt="玫瑰">
+                    <div class="card-content">
+                        <h3>玫瑰 <span class="latin">Rosa</span></h3>
+                        <p>玫瑰是爱情与美的象征，不同颜色的玫瑰有着不同的花语。红玫瑰代表热情真爱，粉玫瑰代表浪漫温柔。</p>
+                    </div>
+                </div>
+                <div class="flower-card" id="lilies">
+                    <img src="网站图片/百合.webp" alt="百合">
+                    <div class="card-content">
+                        <h3>百合 <span class="latin">Lilium</span></h3>
+                        <p>百合象征纯洁、高雅与神圣，常用于婚礼和庆典。在中国文化中，百合寓意"百年好合"。</p>
+                    </div>
+                </div>
+                <div class="flower-card" id="tulips">
+                    <img src="网站图片/郁金香.jpg" alt="郁金香">
+                    <div class="card-content">
+                        <h3>郁金香 <span class="latin">Tulipa</span></h3>
+                        <p>郁金香是荷兰的国花，代表完美的爱情。不同颜色的郁金香有着不同的含义。</p>
+                    </div>
+                </div>
+                <div class="flower-card" id="orchids">
+                    <img src="网站图片/兰花.jpg" alt="兰花">
+                    <div class="card-content">
+                        <h3>兰花 <span class="latin">Orchidaceae</span></h3>
+                        <p>兰花被誉为"花中君子"，象征高雅、纯洁与忠贞。在中国文化中有着悠久的栽培历史。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="culture">
+            <h2 class="section-title">花卉文化</h2>
+            <div class="culture-content">
+                <div class="culture-item">
+                    <img src="https://picsum.photos/id/164/300/200" alt="花文化">
+                    <h3>花语起源</h3>
+                    <p>花语起源于古希腊，后在维多利亚时代盛行。人们通过赠送不同的花卉来表达情感和心意。</p>
+                </div>
+                <div class="culture-item">
+                    <img src="https://picsum.photos/id/169/300/200" alt="花文化">
+                    <h3>四季花卉</h3>
+                    <p>春有樱花桃花，夏有荷花茉莉，秋有菊花桂花，冬有梅花水仙。每个季节都有独特的花卉绽放。</p>
+                </div>
+                <div class="culture-item">
+                    <img src="https://picsum.photos/id/177/300/200" alt="花文化">
+                    <h3>花卉艺术</h3>
+                    <p>花卉在绘画、诗歌、摄影等艺术领域中一直是重要的主题，展现人与自然的和谐之美。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2 class="section-title">中国花卉分布</h2>
+            <div class="map-container">
+                <svg id="chinaMap" viewBox="0 0 900 500"></svg>
+            </div>
+            <div id="provinceInfo" class="province-info">
+                <h3 id="provinceName">选择省份</h3>
+                <div id="provinceFlowers"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <span class="theme-icon sun">☀️</span>
+        <span class="theme-icon moon">🌙</span>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>关于我们</h4>
+                <p>浮光花事致力于分享花卉知识，推广花卉文化，为花卉爱好者提供优质服务。</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="landing.html">首页</a></li>
+                    <li><a href="index.html">花卉图鉴</a></li>
+                    <li><a href="products.html">花卉用品</a></li>
+                    <li><a href="login.html">用户登录</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <p>邮箱: contact@fuguanghuashi.com</p>
+                <p>电话: 400-123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 翟祥彭 - 浮光花事 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+    <script src="d3-map.js"></script>
+</body>
+</html>

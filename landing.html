@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮光花事 - 探索花卉之美</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="landing-hero">
+            <div class="images-slider" id="imagesSlider">
+                <img src="https://images.wallpaperscraft.com/image/single/rose_red_bud_138228_1920x1080.jpg" alt="玫瑰" class="slider-image active">
+                <img src="https://images.wallpaperscraft.com/image/single/water_lily_flower_white_149556_1920x1080.jpg" alt="荷花" class="slider-image">
+                <img src="https://images.wallpaperscraft.com/image/single/sakura_flowers_pink_154053_1920x1080.jpg" alt="樱花" class="slider-image">
+                <img src="https://images.wallpaperscraft.com/image/single/peony_flower_dew_139392_1920x1080.jpg" alt="牡丹" class="slider-image">
+                <img src="https://images.wallpaperscraft.com/image/single/tulip_flower_yellow_142548_1920x1080.jpg" alt="郁金香" class="slider-image">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2>欢迎来到浮光花事</h2>
+                <p>探索花卉的奇妙世界，感受自然的魅力与美好</p>
+                <div class="hero-buttons">
+                    <button class="cta-btn primary" onclick="showLandingLogin()">立即登录</button>
+                    <button class="cta-btn secondary" onclick="showLandingRegister()">免费注册</button>
+                </div>
+            </div>
+            
+            <!-- Landing Page Login Form -->
+            <div class="landing-login-container" id="landingLogin">
+                <div class="landing-login-box">
+                    <div class="login-header">
+                        <h3>用户登录</h3>
+                        <span class="close-btn" onclick="hideLandingLogin()">✕</span>
+                    </div>
+                    <form id="landingLoginForm" onsubmit="return validateLandingLogin()">
+                        <div class="form-group">
+                            <label for="landingUsername">用户名</label>
+                            <input type="text" id="landingUsername" placeholder="请输入用户名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landingPassword">密码</label>
+                            <input type="password" id="landingPassword" placeholder="请输入密码" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landingCaptcha">验证码</label>
+                            <div class="captcha-row">
+                                <input type="text" id="landingCaptcha" placeholder="请输入验证码" required>
+                                <div class="captcha-img" id="landingCaptchaImg" onclick="generateLandingCaptcha()">
+                                    <span id="landingCaptchaText">点击生成</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">登录</button>
+                        <p class="login-hint">测试用户名: 240802203 | 密码: 123456</p>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Landing Page Register Form -->
+            <div class="landing-login-container" id="landingRegister">
+                <div class="landing-login-box">
+                    <div class="login-header">
+                        <h3>用户注册</h3>
+                        <span class="close-btn" onclick="hideLandingRegister()">✕</span>
+                    </div>
+                    <form id="landingRegisterForm" onsubmit="return validateLandingRegister()">
+                        <div class="form-group">
+                            <label for="landingRegUsername">用户名</label>
+                            <input type="text" id="landingRegUsername" placeholder="请输入用户名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landingRegPassword">密码</label>
+                            <input type="password" id="landingRegPassword" placeholder="请输入密码" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landingRegEmail">邮箱</label>
+                            <input type="email" id="landingRegEmail" placeholder="请输入邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="landingRegCaptcha">验证码</label>
+                            <div class="captcha-row">
+                                <input type="text" id="landingRegCaptcha" placeholder="请输入验证码" required>
+                                <div class="captcha-img" id="landingRegCaptchaImg" onclick="generateLandingRegCaptcha()">
+                                    <span id="landingRegCaptchaText">点击生成</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">注册</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">为什么选择我们</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌺</div>
+                    <h3>精选花卉</h3>
+                    <p>我们提供来自世界各地的精选花卉，每一株都经过精心培育</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>快速配送</h3>
+                    <p>专业的配送团队确保您的花卉在最佳状态下送达</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💐</div>
+                    <h3>专业养护</h3>
+                    <p>提供详细的养护指南，帮助您让花卉茁壮成长</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>精美包装</h3>
+                    <p>每一束花都配有精美的包装，适合各种场合送礼</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-flowers">
+            <h2 class="section-title">热门花卉</h2>
+            <div class="flip-cards-grid">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="网站图片/玫瑰.webp" alt="玫瑰">
+                            <div class="flip-card-overlay">
+                                <h3>玫瑰 Rosa</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>玫瑰 Rosa</h3>
+                            <p>玫瑰是爱情与美的象征，拥有丰富的色彩和迷人的香气。适合用于求婚、纪念日等浪漫场合。</p>
+                            <div class="flip-card-price">¥88 起</div>
+                            <button class="flip-card-btn">立即购买</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="网站图片/百合.webp" alt="百合">
+                            <div class="flip-card-overlay">
+                                <h3>百合 Lilium</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>百合 Lilium</h3>
+                            <p>百合象征纯洁与高雅，花朵优雅大方，常用于婚礼、庆典等正式场合，也是送给母亲的佳选。</p>
+                            <div class="flip-card-price">¥68 起</div>
+                            <button class="flip-card-btn">立即购买</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="网站图片/郁金香.jpg" alt="郁金香">
+                            <div class="flip-card-overlay">
+                                <h3>郁金香 Tulipa</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>郁金香 Tulipa</h3>
+                            <p>郁金香被誉为花中皇后，色彩绚丽多样，是春季最受欢迎的花卉之一，代表完美的爱情。</p>
+                            <div class="flip-card-price">¥58 起</div>
+                            <button class="flip-card-btn">立即购买</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="网站图片/兰花.jpg" alt="兰花">
+                            <div class="flip-card-overlay">
+                                <h3>兰花 Orchidaceae</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>兰花 Orchidaceae</h3>
+                            <p>兰花是高贵典雅的象征，花型优美，花期长，适合室内装饰和送礼，是品位与身份的体现。</p>
+                            <div class="flip-card-price">¥128 起</div>
+                            <button class="flip-card-btn">立即购买</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="网站图片/牡丹.webp" alt="牡丹">
+                            <div class="flip-card-overlay">
+                                <h3>牡丹 Paeonia</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>牡丹 Paeonia</h3>
+                            <p>牡丹是中国的国花，花大色艳，富丽堂皇，象征富贵吉祥，是传统名花中的佼佼者。</p>
+                            <div class="flip-card-price">¥98 起</div>
+                            <button class="flip-card-btn">立即购买</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="网站图片/向日葵.jpg" alt="向日葵">
+                            <div class="flip-card-overlay">
+                                <h3>向日葵 Sunflower</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>向日葵 Sunflower</h3>
+                            <p>向日葵象征阳光与希望，花朵硕大明亮，给人带来积极向上的能量，是送礼和装饰的热门选择。</p>
+                            <div class="flip-card-price">¥48 起</div>
+                            <button class="flip-card-btn">立即购买</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="china-map-section">
+            <h2 class="section-title">花卉原产地分布</h2>
+            <p class="section-subtitle">点击省份查看当地特色花卉</p>
+            <div class="map-container">
+                <svg id="chinaMap" viewBox="0 0 900 500" width="900" height="500"></svg>
+                <div id="provinceInfo" class="province-info">
+                    <h3 id="provinceName">选择省份</h3>
+                    <p id="provinceFlowers">请点击地图上的省份查看特色花卉</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title">客户评价</h2>
+            <div class="marquee-container">
+                <!-- First Marquee Row -->
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"花卉非常新鲜，包装精美，送货及时。下次还会回购！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">张女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"给妈妈买的生日花束，她非常喜欢。客服态度也很好！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">李先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"品质一流，价格合理。浮光花事的花卉值得信赖！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">王小姐</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"物流很快，包装也很用心，花朵收到时都很新鲜！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">赵先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"送给女朋友的花，她非常喜欢，下次还会再来！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">陈先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"客服非常耐心，推荐的花卉很适合送礼，很满意！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">刘女士</span>
+                            </div>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"花卉非常新鲜，包装精美，送货及时。下次还会回购！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">张女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"给妈妈买的生日花束，她非常喜欢。客服态度也很好！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">李先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"品质一流，价格合理。浮光花事的花卉值得信赖！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">王小姐</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"物流很快，包装也很用心，花朵收到时都很新鲜！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">赵先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"送给女朋友的花，她非常喜欢，下次还会再来！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">陈先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"客服非常耐心，推荐的花卉很适合送礼，很满意！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">刘女士</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Marquee Row (Reverse) -->
+                <div class="marquee-wrapper marquee-reverse">
+                    <div class="marquee-track">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"花材新鲜，品种丰富，价格实惠，非常满意！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">孙女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"包装精美，配送及时，送给朋友很有面子！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">周先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"第一次在网上买花，没想到这么好，以后常来！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">吴女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"母亲节送妈妈的花，妈妈很开心，谢谢浮光花事！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">郑先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"服务很好，花很漂亮，性价比很高！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">黄女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"花的品质很好，客服态度也很棒，强烈推荐！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">许先生</span>
+                            </div>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"花材新鲜，品种丰富，价格实惠，非常满意！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">孙女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"包装精美，配送及时，送给朋友很有面子！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">周先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"第一次在网上买花，没想到这么好，以后常来！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">吴女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"母亲节送妈妈的花，妈妈很开心，谢谢浮光花事！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">郑先生</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"服务很好，花很漂亮，性价比很高！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👩</span>
+                                <span class="author-name">黄女士</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-text">"花的品质很好，客服态度也很棒，强烈推荐！"</p>
+                            <div class="testimonial-author">
+                                <span class="author-avatar">👨</span>
+                                <span class="author-name">许先生</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Gradient Mask -->
+                <div class="marquee-gradient-left"></div>
+                <!-- Right Gradient Mask -->
+                <div class="marquee-gradient-right"></div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>准备好开始您的花卉之旅了吗？</h2>
+                <p>立即注册成为浮光花事会员，享受更多优惠和专属服务</p>
+                <a href="login.html" class="cta-btn primary large">立即注册</a>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">满意客户</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">花卉品种</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">好评率</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">快速配送</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        <span class="theme-icon sun">☀️</span>
+        <span class="theme-icon moon">🌙</span>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>关于我们</h4>
+                <p>浮光花事致力于分享花卉知识，推广花卉文化，为花卉爱好者提供优质服务。</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="landing.html">首页</a></li>
+                    <li><a href="index.html">花卉图鉴</a></li>
+                    <li><a href="products.html">花卉用品</a></li>
+                    <li><a href="login.html">用户登录</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <p>邮箱: contact@fuguanghuashi.com</p>
+                <p>电话: 400-123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 翟祥彭 - 浮光花事 版权所有</p>
+        </div>
+    </footer>
+
+    <canvas id="canvas" class="pointer-events-none fixed inset-0"></canvas>
+    <script src="flowers-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
