@@ -203,8 +203,135 @@ function searchFlower() {
         return;
     }
     
-    alert('搜索结果："' + keyword + '" 相关花卉');
+    var results = [];
+    
+    var flowerCards = document.querySelectorAll('.flower-card');
+    flowerCards.forEach(function(card) {
+        var title = card.querySelector('h3').textContent.toLowerCase();
+        var desc = card.querySelector('p').textContent.toLowerCase();
+        if (title.includes(keyword) || desc.includes(keyword)) {
+            results.push({
+                type: 'flower',
+                id: card.id,
+                name: card.querySelector('h3').textContent.split(' ')[0],
+                desc: card.querySelector('p').textContent.substring(0, 50) + '...'
+            });
+        }
+    });
+    
+    for (var province in provinceFlowers) {
+        var flower = provinceFlowers[province].flower.toLowerCase();
+        var desc = provinceFlowers[province].description.toLowerCase();
+        if (province.toLowerCase().includes(keyword) || 
+            flower.includes(keyword) || 
+            desc.includes(keyword)) {
+            results.push({
+                type: 'province',
+                name: province,
+                flower: provinceFlowers[province].flower,
+                desc: provinceFlowers[province].description
+            });
+        }
+    }
+    
+    showSearchResults(results, keyword);
     searchInput.value = '';
+}
+
+function showSearchResults(results, keyword) {
+    var resultsDiv = document.getElementById('searchResults');
+    if (!resultsDiv) {
+        resultsDiv = document.createElement('div');
+        resultsDiv.id = 'searchResults';
+        resultsDiv.className = 'search-results-overlay';
+        document.body.appendChild(resultsDiv);
+    }
+    
+    if (results.length === 0) {
+        resultsDiv.innerHTML = `
+            <div class="search-results">
+                <div class="results-header">
+                    <h3>搜索结果</h3>
+                    <span class="close-btn" onclick="closeSearchResults()">&times;</span>
+                </div>
+                <p class="no-results">未找到与 "${keyword}" 相关的内容</p>
+            </div>
+        `;
+    } else {
+        var html = `
+            <div class="search-results">
+                <div class="results-header">
+                    <h3>搜索结果 - 共找到 ${results.length} 条</h3>
+                    <span class="close-btn" onclick="closeSearchResults()">&times;</span>
+                </div>
+                <div class="results-list">
+        `;
+        
+        results.forEach(function(result) {
+            if (result.type === 'flower') {
+                html += `
+                    <div class="result-item" onclick="scrollToFlower('${result.id}')">
+                        <span class="result-icon">🌸</span>
+                        <div class="result-content">
+                            <h4>${result.name}</h4>
+                            <p>${result.desc}</p>
+                        </div>
+                        <span class="result-arrow">→</span>
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="result-item" onclick="showProvinceSearch('${result.name}')">
+                        <span class="result-icon">📍</span>
+                        <div class="result-content">
+                            <h4>${result.name} - ${result.flower}</h4>
+                            <p>${result.desc}</p>
+                        </div>
+                        <span class="result-arrow">→</span>
+                    </div>
+                `;
+            }
+        });
+        
+        html += `
+                </div>
+            </div>
+        `;
+        resultsDiv.innerHTML = html;
+    }
+    
+    resultsDiv.style.display = 'flex';
+}
+
+function closeSearchResults() {
+    var resultsDiv = document.getElementById('searchResults');
+    if (resultsDiv) {
+        resultsDiv.style.display = 'none';
+    }
+}
+
+function scrollToFlower(flowerId) {
+    var element = document.getElementById(flowerId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.classList.add('highlight');
+        setTimeout(function() {
+            element.classList.remove('highlight');
+        }, 2000);
+    }
+    closeSearchResults();
+}
+
+function showProvinceSearch(provinceName) {
+    var mapSection = document.querySelector('.map-section');
+    if (mapSection) {
+        mapSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    
+    setTimeout(function() {
+        showProvinceInfo(provinceName);
+    }, 500);
+    closeSearchResults();
 }
 
 function searchProduct() {
