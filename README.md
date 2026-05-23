@@ -24,37 +24,16 @@
 ## 技术栈
 
 - **前端**：HTML5, CSS3, JavaScript
-- **可视化库**：[D3.js v7](https://github.com/d3/d3) - 用于中国地图可视化
-- **UI参考**：[Inspira UI](https://github.com/unovue/inspira-ui) - 界面设计参考
+- **可视化库**：D3.js v7
 - **数据格式**：GeoJSON
 - **存储**：LocalStorage（用户信息、购物车）
 - **服务器**：Node.js（提供静态文件服务）
 
-### 扩展技术说明
-
-#### 1. D3.js 地图可视化
-- **来源**：https://github.com/d3/d3
-- **使用文件**：`d3-map.js`
-- **功能**：
-  - 使用 `d3.geoMercator()` 创建墨卡托投影
-  - 使用 `d3.geoPath()` 生成地理路径
-  - 加载 `china.json` GeoJSON 数据绘制真实省份轮廓
-  - 支持鼠标悬停高亮和点击交互
-
-#### 2. Inspira UI 设计参考
-- **来源**：https://github.com/unovue/inspira-ui
-- **使用文件**：`style.css`
-- **功能**：
-  - 响应式布局设计
-  - 渐变色彩方案
-  - 卡片阴影效果
-  - 平滑过渡动画
-
 ## 项目结构
 
 ```
+├── landing.html        # 网站入口页（着陆页）
 ├── index.html          # 花卉图鉴主页面
-├── landing.html        # 着陆页
 ├── login.html         # 登录页面
 ├── products.html      # 商品页面
 ├── profile.html       # 用户中心页面
