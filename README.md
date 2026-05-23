@@ -58,7 +58,7 @@ node server.mjs
 ```
 
 ### 3. 访问网站
-打开浏览器访问：http://localhost:8000
+打开浏览器访问：[https://zxp0854.github.io/flower/landing.html](https://zxp0854.github.io/flower/landing.html)
 
 ### 4. 登录测试账号
 - 用户名：`240802203`
