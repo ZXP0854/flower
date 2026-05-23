@@ -33,8 +33,8 @@
 
 ```
 ├── landing.html        # 网站入口页（着陆页）
-├── index.html          # 花卉图鉴主页面
 ├── login.html         # 登录页面
+├── index.html          # 花卉图鉴主页面
 ├── products.html      # 商品页面
 ├── profile.html       # 用户中心页面
 ├── script.js         # 主脚本文件
