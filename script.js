@@ -88,6 +88,11 @@ function validateLandingLogin() {
     var password = document.getElementById('landingPassword').value;
     var captcha = document.getElementById('landingCaptcha').value.toUpperCase();
     
+    console.log('输入的用户名:', username);
+    console.log('输入的密码:', password);
+    console.log('输入的验证码:', captcha);
+    console.log('正确的验证码:', landingCaptcha);
+    
     if (!username) {
         alert('请输入用户名');
         return false;
@@ -113,7 +118,7 @@ function validateLandingLogin() {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('username', username);
         localStorage.setItem('email', username + '@example.com');
-        alert('登录成功！欢迎来到浮光花事');
+        console.log('登录成功，准备跳转到 index.html');
         window.location.href = 'index.html';
         return false;
     } else {
