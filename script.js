@@ -603,7 +603,7 @@ function showLogin() {
 }
 
 function forgotPassword() {
-    alert('请联系管理员重置密码：contact@fuguanghuashi.com');
+    alert('请联系管理员重置密码：3050745668@qq.com');
 }
 
 var canvasCtx = null;
