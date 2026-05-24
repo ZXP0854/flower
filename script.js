@@ -64,7 +64,7 @@ function hideLandingRegister() {
 }
 
 function generateLandingCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz0123456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -74,7 +74,7 @@ function generateLandingCaptcha() {
 }
 
 function generateLandingRegCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz0123456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -87,11 +87,6 @@ function validateLandingLogin() {
     var username = document.getElementById('landingUsername').value.trim();
     var password = document.getElementById('landingPassword').value;
     var captcha = document.getElementById('landingCaptcha').value.toUpperCase();
-    
-    console.log('输入的用户名:', username);
-    console.log('输入的密码:', password);
-    console.log('输入的验证码:', captcha);
-    console.log('正确的验证码:', landingCaptcha);
     
     if (!username) {
         alert('请输入用户名');
@@ -119,7 +114,6 @@ function validateLandingLogin() {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('username', username);
         localStorage.setItem('email', username + '@example.com');
-        console.log('登录成功，准备跳转到 index.html');
         window.location.href = 'index.html';
         return false;
     } else {
@@ -164,7 +158,6 @@ function validateLandingRegister() {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('username', username);
     localStorage.setItem('email', email);
-    console.log('注册成功，准备跳转到 index.html');
     window.location.href = 'index.html';
     return false;
 }
@@ -477,7 +470,7 @@ function checkout() {
 }
 
 function generateCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz0123456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -487,7 +480,7 @@ function generateCaptcha() {
 }
 
 function generateRegisterCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz0123456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
