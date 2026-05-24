@@ -108,9 +108,10 @@ function validateLandingLogin() {
         return false;
     }
     
-    if (captcha !== landingCaptcha.toUpperCase()) {
+    if (captcha !== landingCaptcha) {
         alert('验证码错误，请重新输入');
         generateLandingCaptcha();
+        document.getElementById('landingCaptcha').value = '';
         return false;
     }
     
@@ -153,16 +154,17 @@ function validateLandingRegister() {
         return false;
     }
     
-    if (captcha !== landingRegCaptcha.toUpperCase()) {
+    if (captcha !== landingRegCaptcha) {
         alert('验证码错误，请重新输入');
         generateLandingRegCaptcha();
+        document.getElementById('landingRegCaptcha').value = '';
         return false;
     }
     
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('username', username);
     localStorage.setItem('email', email);
-    alert('注册成功！欢迎来到浮光花事');
+    console.log('注册成功，准备跳转到 index.html');
     window.location.href = 'index.html';
     return false;
 }
