@@ -64,7 +64,7 @@ function hideLandingRegister() {
 }
 
 function generateLandingCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -74,7 +74,7 @@ function generateLandingCaptcha() {
 }
 
 function generateLandingRegCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -103,7 +103,7 @@ function validateLandingLogin() {
         return false;
     }
     
-    if (captcha !== landingCaptcha) {
+    if (captcha !== landingCaptcha.toUpperCase()) {
         alert('验证码错误，请重新输入');
         generateLandingCaptcha();
         document.getElementById('landingCaptcha').value = '';
@@ -148,7 +148,7 @@ function validateLandingRegister() {
         return false;
     }
     
-    if (captcha !== landingRegCaptcha) {
+    if (captcha !== landingRegCaptcha.toUpperCase()) {
         alert('验证码错误，请重新输入');
         generateLandingRegCaptcha();
         document.getElementById('landingRegCaptcha').value = '';
@@ -470,7 +470,7 @@ function checkout() {
 }
 
 function generateCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -480,7 +480,7 @@ function generateCaptcha() {
 }
 
 function generateRegisterCaptcha() {
-    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
     var captcha = '';
     for (var i = 0; i < 4; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -509,7 +509,7 @@ function validateLogin() {
         return false;
     }
     
-    if (captcha !== currentCaptcha) {
+    if (captcha !== currentCaptcha.toUpperCase()) {
         alert('验证码错误，请重新输入');
         generateCaptcha();
         return false;
@@ -572,7 +572,7 @@ function validateRegister() {
         return false;
     }
     
-    if (captcha !== currentRegisterCaptcha) {
+    if (captcha !== currentRegisterCaptcha.toUpperCase()) {
         alert('验证码错误，请重新输入');
         generateRegisterCaptcha();
         return false;
